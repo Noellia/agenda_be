@@ -20,7 +20,7 @@ class DepartmentController{
     static async fetch(req, res, next){
         try{
 
-            const Department = await Department.findAll();
+            const Department = Department.findAll();
 
             res.send(Department);
         }catch(err){
@@ -30,7 +30,7 @@ class DepartmentController{
 
     static async save(req, res, next){
         try {
-            const result = await Deparment.updateOne({id: req.params.id}, req.body);
+            const result = await Department.updateOne({id: req.params.id}, req.body);
             res.send({
                 success: true,
                 result
@@ -43,7 +43,7 @@ class DepartmentController{
 
     static async delete(req, res, next){
         try{
-            const result = await Department.deleteOne({id: req.params.id});
+            const result = await Department.deletedOne({id: req.params.id});
             res.send({
                 success: true,
                 result

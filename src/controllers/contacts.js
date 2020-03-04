@@ -41,7 +41,7 @@ class ContactController{
 
     static async delete(req, res, next){
         try{
-            const result = await Contact.deleteOne({id: req.params.id});
+            const result = await Contact.deletedOne({id: req.params.id});
             res.send({
                 success: true,
                 result
