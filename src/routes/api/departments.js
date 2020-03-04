@@ -4,7 +4,8 @@ module.exports = router => {
     router.route('/')
         .get(DepartmentController.fetch)
         .post(DepartmentController.create)
-        .put(DepartmentController.save);
+        .put(DepartmentController.save)
+        .delete(DepartmentController.delete);
 
     return router;
 };

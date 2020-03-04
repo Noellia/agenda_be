@@ -4,7 +4,8 @@ module.exports = router => {
     router.route('/')
         .get(ContactController.fetch)
         .post(ContactController.create)
-        .put(ContactController.save);
+        .put(ContactController.save)
+        .delete(ContactController.delete);
 
     return router;
 };
