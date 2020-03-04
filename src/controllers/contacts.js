@@ -30,14 +30,11 @@ class ContactController{
             const contact = await Contact.findById(req.params.id);
 
             if(isEmpty(contact)){
-                res.status(404).send({                    
+                return res.status(404).send({                    
                     code: 'CONTACT_NOT_FOUND',
-                })
+                });
 
-                return;
             }
-
-            
 
             res.send(head(contact));
         }catch(err){
