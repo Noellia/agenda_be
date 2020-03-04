@@ -2,10 +2,6 @@ const {Router} = require('express');
 const {errorHandler} = require('./middleWares');
 
 const {StatusController} = include('controllers');
-<<<<<<< HEAD
-=======
-const {ContactController} = include('controllers')
->>>>>>> feat(model): add crud
 const Logger = include('helpers/logger');
 /**
  * @class Routes
