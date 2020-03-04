@@ -6,7 +6,8 @@ module.exports = router => {
         .post(ContactController.create)
     router.route('/:id')
         .put(ContactController.save)
-        .delete(ContactController.delete);
+        .delete(ContactController.delete)
+        .get(ContactController.fetchOne);
 
     return router;
 };

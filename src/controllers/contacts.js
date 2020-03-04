@@ -1,6 +1,4 @@
-const head = require('lodash/head');
-const map = require('lodash/map');
-const pick = require('lodash/pick');
+const {isEmpty, head} = require('lodash');
 
 const { Contact } = include('models');
 
@@ -22,6 +20,26 @@ class ContactController{
             const contacts = await Contact.findAll();
 
             res.send(contacts);
+        }catch(err){
+            next(err);
+        }
+    }
+
+    static async fetchOne(req, res, next){
+        try{
+            const contact = await Contact.findById(req.params.id);
+
+            if(isEmpty(contact)){
+                res.status(404).send({                    
+                    code: 'CONTACT_NOT_FOUND',
+                })
+
+                return;
+            }
+
+            
+
+            res.send(head(contact));
         }catch(err){
             next(err);
         }
