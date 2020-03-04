@@ -2,12 +2,12 @@ const head = require('lodash/head');
 const map = require('lodash/map');
 const pick = require('lodash/pick');
 
-const { Contact } = include('models');
+const { Department } = include('models');
 
-class ContactController{
+class DepartmentController{
     static async create(req, res, next) {
         try {
-            const result = await Contact.insertOne(req.body);
+            const result = await Department.insertOne(req.body);
             res.send({
                 success: true,
                 result
@@ -16,20 +16,21 @@ class ContactController{
             next(err);
         }
     }
+
     static async fetch(req, res, next){
         try{
 
-            const contacts = await Contact.findAll();
+            const Department = await Department.findAll();
 
-            res.send(contacts);
+            res.send(Department);
         }catch(err){
             next(err);
         }
     }
 
-    static async save(req, res, next) {
+    static async save(req, res, next){
         try {
-            const result = await Contact.updateOne({id: req.params.id}, req.body);
+            const result = await Deparment.updateOne({id: req.params.id}, req.body);
             res.send({
                 success: true,
                 result
@@ -37,11 +38,12 @@ class ContactController{
         } catch (err) {
             next(err);
         }
+            
     }
 
     static async delete(req, res, next){
         try{
-            const result = await Contact.deleteOne({id: req.params.id});
+            const result = await Department.deleteOne({id: req.params.id});
             res.send({
                 success: true,
                 result
@@ -52,6 +54,8 @@ class ContactController{
             next(err);
         }
     }
+
+
 }
 
-module.exports = ContactController;
+module.exports = DepartmentController;

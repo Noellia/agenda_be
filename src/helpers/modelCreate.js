@@ -64,9 +64,13 @@ class ModelCreate {
 
     insertOne (props) {
         const objectToSave = this.jsonToString(props);
+<<<<<<< HEAD
 
         objectToSave.id = uuid();
         objectToSave.createdAt = new Date();
+=======
+        objectToSave.id = uuid();
+>>>>>>> feat(model): add crud
         if (this.transaction) {
             return this.transaction(this.tableName).insert(objectToSave).returning(this.selectableProps)
                 .timeout(this.timeout);
